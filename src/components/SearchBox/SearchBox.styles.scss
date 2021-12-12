@@ -1,0 +1,102 @@
+.searchbox {
+  border: 1px solid #d9d9d9;
+  width: max-content;
+  display: flex;
+  align-items: center;
+  background: white;
+  position: relative;
+  border-radius: 5px;
+  width: 100%;
+
+  &-icon {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    width: 1em;
+    height: 1em;
+    pointer-events: none;
+  }
+
+  input {
+    outline: none;
+    border: none;
+    height: 56px;
+    padding-left: 46px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    width: 100%;
+
+    &:focus {
+      box-shadow: rgba(18, 115, 196, 0.24) 0px 0px 0px 3px;
+    }
+
+    &::placeholder {
+      color: rgb(175, 175, 175);
+    }
+  }
+
+  &-spinner {
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    border: 2px solid #1879ca;
+    border-top: 2px solid rgb(204, 204, 204);
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    right: 12px;
+    top: calc((56px / 2) - 9px);
+  }
+
+  &-results {
+    position: absolute;
+    top: calc(100% - 12px);
+    left: 0;
+    width: 100%;
+    list-style: none;
+    padding-left: 0;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.16);
+    border-radius: 5px;
+    background: white;
+  }
+
+  &-option {
+    padding: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+
+    &:hover {
+      background: rgba(18, 115, 196, 0.06);
+    }
+
+    &-title {
+      margin: 0;
+    }
+
+    &-subtitle {
+      color: grey;
+    }
+
+    &-badge {
+      background: #1879ca;
+      color: white;
+      padding: 6px 24px;
+      border-radius: 5px;
+      width: max-content;
+      margin-right: 12px;
+      font-size: 12px;
+    }
+  }
+}
